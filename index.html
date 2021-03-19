@@ -1,12 +1,19 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script>
-      let HOST = location.origin.replace(/^http/, 'ws')
-      let ws = new WebSocket(HOST);
-      let el;
-    </script>
-  </head>
-  <body>
-    <p id="server-time"></p>
-  </body>
+<head>
+  <title>WebSocket Playground</title>
+</head>
+<body>
+</body>
+<script>
+const ws = new WebSocket('ws://192.168.100.128:9898/');
+ws.onopen = function() {
+    console.log('WebSocket Client Connected');
+    ws.send('Hi this is web client.');
+};
+ws.onmessage = function(e) {
+  console.log("Received: '" + e.data + "'");
+};
+
+</script>
 </html>
