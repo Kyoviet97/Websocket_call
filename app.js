@@ -5,9 +5,7 @@ var webSocketServer = new (require('ws')).Server({
   })
 
   webSocketServer.on('connection', function(socket){
-    socket.on('connection', (toId, message) => {
-		console.log("=================>>> connect");
-    })
+    console.log("=================>>> connect");
 
     socket.on("message", function(data){
 		webSocketServer.clients.forEach(function each(client) {
@@ -18,4 +16,6 @@ var webSocketServer = new (require('ws')).Server({
 	socket.on('disconnect', function() {
 		console.log("=================>>> disconnect");
 	})
+
+    socket.on('close', () => console.log('Client disconnected'));
 });

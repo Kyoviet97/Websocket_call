@@ -6,7 +6,7 @@
 <body>
 </body>
 <script>
-const ws = new WebSocket('ws://192.168.100.128:9898/');
+const ws = new WebSocket('ws://192.168.100.127:5000/');
 ws.onopen = function() {
     console.log('WebSocket Client Connected');
     ws.send('Hi this is web client.');
